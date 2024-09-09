@@ -143,7 +143,6 @@ This project provides a REST API for processing CSV files by evaluating formulas
 The API provides specific error handling for CSV processing:
 
 - **FileNotFoundException:** Returns a `404 Not Found` response with the error message if csv is not found.
-- 
 - **IllegalArgumentException:** Returns a `400 Bad request` response with the error message if csv is not found.
 - **General Exceptions:** Returns a `500 Internal Server Error` response with a generic error message.
 
