@@ -133,10 +133,25 @@ This project provides a REST API for processing CSV files by evaluating formulas
 - **Description:** Uploads a CSV file, processes it by evaluating formulas within cells, and returns the processed CSV file.
 - **Request:**
   - **Multipart File:** `file` (CSV file)
+- **Input CSV:**
+ ```
+  A1, B1, C1
+ 5, 3,  =5+A1
+ 7, 8, =A2+B2
+ 9, =4+5, =C2+B3
+
+ ```
 - **Response:**
   - **Content-Disposition Header:** `attachment;filename=output.csv`
   - **Content-Type:** `csv`
   - **Body:** Processed CSV file
+- **Response CSV:**
+ ```
+ 5,3,10
+ 7,8,15
+ 9,9,24
+
+ ```
 
 ## Error Handling
 
