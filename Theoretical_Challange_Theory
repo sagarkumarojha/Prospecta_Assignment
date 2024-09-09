@@ -1,1 +1,49 @@
+1. How will you tackle the challenge above?
 
+I will tackle the challenge of processing a CSV file 
+with plain values and formulas by following this approach:
+
+Parse the CSV File: Use OpenCSV to read the data from the CSV file.
+
+Evaluate Formulas with Apache POI: For cells containing formulas:
+
+Implement logic to parse and evaluate formulas using Apache POI, such as =A1+B1.
+Replace cell references with actual values and compute the results.
+Automatically Generate the Updated File: After processing, use Apache POI 
+to generate a new CSV or Excel file with the updated data.
+
+Handle Errors with Spring Boot: Utilize Spring Boot’s error-handling mechanisms to 
+manage and log errors effectively, such as invalid formulas or data inconsistencies, 
+and ensure the output file is created only if processing is successful.
+
+2. What type of errors would you check for?
+When processing CSV files with formulas, we should check for:
+
+Invalid Formulas:
+    Syntax Errors: 
+       Ensure the formulas are correctly formatted.
+    Unrecognized Functions: 
+        Handle cases where the formula contains unsupported functions.
+Missing References:
+   Undefined Variables: Ensure that references like A1 exist in the CSV and handle missing or out-of-bounds references.
+Data Type Mismatches:
+     Non-Numeric Values: Handle cases where numeric operations encounter non-numeric values.
+Parsing Errors:
+    Incorrect CSV Formatting: Account for malformed CSV files, such as wrong delimiters or inconsistent row lengths.
+File Handling Errors:
+    Empty or Corrupted Files: Ensure the input file is not empty or unreadable.
+
+
+
+3. How might a user break your code?
+users might break the code by:
+    Malformed CSV File:
+        Uploading a CSV with improper formatting (e.g., missing commas, inconsistent row lengths) could cause parsing failures.
+    Complex Formulas:
+        Using unsupported or overly complex formulas might result in errors or incorrect results.
+    Missing References:
+        If a formula references cells that don't exist or are empty, this could lead to calculation errors or exceptions.
+    Large Files:
+        Handling huge CSV files inefficiently could lead to memory issues or performance slowdowns.
+    Non-Numeric Values in Numeric Operations:
+        Including non-numeric values in cells expected to contain numbers might lead to errors or crashes during calculations.
